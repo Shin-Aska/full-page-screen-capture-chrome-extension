@@ -1,0 +1,138 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    width: 300px;
+    background: #ececec;
+}
+.header {
+    height: 100%;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+    background-color: #7b0052;
+}
+.header img {
+    width: 100px;
+}
+
+.btn {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #3d4582;
+    color: #fff;
+    margin: 0px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn:hover {
+    background: #002b7b;
+}
+
+
+.put {
+    background: transparent;
+    padding: 10px;
+    border: none;
+    outline: none;
+    color: #999;
+    text-align: center;
+    border-bottom: 1px solid #999;
+    width: 140px;
+}
+
+.put:hover {
+    color: #333;
+    border-bottom: 1px solid #333;
+}
+
+.data-container {
+    position: relative;
+    padding: 20px;
+}
+
+.hard {
+    font-weight: 500;
+    min-width: 100px;
+}
+
+.is-center {
+    text-align: center;
+}
+
+.proccess-types {
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.screenshot-image {
+    max-width: 250px;
+    max-height: 100px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    margin-bottom: 15px;
+}
+
+.screenshot-image img {
+    width: 250px;
+}
+
+#loading {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 100;
+    top: 0px;
+    left: 0px;
+    padding: 5px;
+    text-align: center;
+    padding: 5px;
+}
+
+.loader {
+    width: 200px;
+    height: 20px;
+    border: 1px solid #333;
+    border-radius: 5px;
+    position: relative;
+    margin: auto;
+    margin-top: 70px;
+    background: #fff;
+    box-shadow: 1px 8px 3px 3px rgba(255, 255, 255, 0.5);
+}
+
+#bar {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.3);
+    width: 0px;
+    height: 20px;
+    border-radius: 3px;
+    transition: width .3s;
+
+}
+
+#load-text {
+    font-weight: 500;
+}
+
+.inlined {
+    display: inline-block;,
+    float: left;
+}
+
+.app-list {
+    border-top: 1px solid #666;
+    width: 100%;
+    margin-top: 7px;
+    padding-top: 7px;
+    color: #999;
+}

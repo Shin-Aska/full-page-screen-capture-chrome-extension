@@ -1,4 +1,5 @@
 
+window.lastBlob = "";
 window.CaptureAPI = (function() {
 
     var MAX_PRIMARY_DIMENSION = 15000 * 2,
@@ -202,7 +203,7 @@ window.CaptureAPI = (function() {
 
         // come up with file-system size with a little buffer
         var size = blob.size + (1024 / 2);
-
+        
         // create a blob for writing to a file
         var reqFileSystem = window.requestFileSystem || window.webkitRequestFileSystem;
         reqFileSystem(window.TEMPORARY, size, function(fs){
@@ -213,6 +214,11 @@ window.CaptureAPI = (function() {
                 }, errback); // TODO - standardize error callbacks?
             }, errback);
         }, errback);
+    }
+
+    function getBlob(blob) {
+        window.lastBlob = blob;
+        return blob;
     }
 
 
@@ -229,7 +235,7 @@ window.CaptureAPI = (function() {
     function captureToBlobs(tab, callback, errback, progress, splitnotifier) {
         var loaded = false,
             screenshots = [],
-            timeout = 3000,
+            timeout = 18000,
             timedOut = false,
             noop = function() {};
 
@@ -288,7 +294,7 @@ window.CaptureAPI = (function() {
             var i = 0,
                 len = blobs.length,
                 filenames = [];
-
+            window.lastBlob = blobs;
             (function doNext() {
                 saveBlob(blobs[i], filename, i, function(filename) {
                     i++;
@@ -299,8 +305,15 @@ window.CaptureAPI = (function() {
         }, errback, progress, splitnotifier);
     }
 
+    function obtainBlob(tab, filename, callback, errback, progress, splitnotifier) {
+        return captureToBlobs(tab, function(blobs) {
+            return getBlob(blobs);
+        }, errback, progress, splitnotifier);
+    }
+
 
     return {
+        obtainBlob: obtainBlob,
         captureToBlobs: captureToBlobs,
         captureToFiles: captureToFiles
     };

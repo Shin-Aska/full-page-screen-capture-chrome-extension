@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" type="text/css" href="main.css" />
+    </head>
+    <body>
+        <div class="header">
+            <img class="inlined" src="../assets/header-logo.svg" />
+        </div>
+
+        <div id="loading" style="display: none;">
+            <div class="loader"><div class="bar" id="bar"></div></div>
+            <div class="clr">
+                <br>
+                <p>
+                    Screen capture in progress, your finished image will open in a
+                    new window once completed. Please wait for the progress bar to
+                    finish.
+                </p>
+            </div>
+        </div>
+        <p id="warning" style="color: red; margin: 10px; text-align: center; font-weight: bolder;">This page is not listed in the database. Please update CMS or try again later</p>
+        <div class="link-tab is-center tab-content">
+            <label for="week_no">Week Number: </label>
+            <input class="put" id="week_no" type="text" placeholder="Week #" /><br>
+            <label for="product_id">Product ID: </label>
+            <input class="put" id="product_id" type="text" placeholder="Product ID" /><br>
+            <label for="website_id">Website ID: </label>
+            <input class="put" id="website_id" type="text" placeholder="Website ID" />
+            <input type="hidden" id="url" />
+        </div>
+
+        <button id="captureButton" style="display: block; margin-left: auto; margin-right: auto;" class="btn" id="default_btn">Capture and Save</button>
+        <script src="api.js"></script>
+        <script src="popup.js"></script>
+    </body>
+</html>
